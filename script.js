@@ -3,11 +3,11 @@ var tab_contents=document.getElementsByClassName("tab-contents");
 
 
 function openTab(tab_name) {
-    for(tab_link of tab_links) {
+    for(let tab_link of tab_links) {
         tab_link.classList.remove("active-link");
     }
 
-    for(tab_content of tab_contents) {
+    for(let tab_content of tab_contents) {
         tab_content.classList.remove("active-tab");
     }
 
