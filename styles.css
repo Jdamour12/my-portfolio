@@ -596,31 +596,31 @@ nav .fas {
 
 /* MOBILE: hide nav links inside side menu */
 @media only screen and (max-width: 600px) {
-  #side-menu {
-    position: fixed;
-    top: 0;
-    right: -200px; /* hidden */
-    width: 200px;
-    height: 100vh;
-    background: #ff004f;
-    padding-top: 50px;
-    z-index: 2000;
-    transition: right 0.5s;
-    flex-direction: column;
-  }
-
-  #side-menu li {
-    display: block;
-    margin: 25px;
-  }
-
-  nav .fas.fa-bars {
-    display: block; /* hamburger visible */
-  }
-
-  nav .fas.fa-times {
-    display: block; /* close icon visible inside menu */
-  }
+    #side-menu {
+      position: fixed;
+      top: 0;
+      right: -200px; /* hidden */
+      width: 200px;
+      height: 100vh;
+      background: #ff004f;
+      padding-top: 50px;
+      z-index: 2000;
+      transition: right 0.5s;
+      flex-direction: column;
+    }
+  
+    #side-menu li {
+      display: block;
+      margin: 25px;
+    }
+  
+    nav .fas.fa-bars {
+      display: block; /* hamburger visible */
+    }
+  
+    nav .fas.fa-times {
+      display: block; /* close icon visible inside menu */
+    }
 }
 
 /* DESKTOP: reset everything back */
