@@ -30,9 +30,9 @@ function closeMenu(){
 // Javascript for linking my portfolio with google spreadsheets
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbw_Q_ZPY7XhNhLgtV_HhiWUq5dsPqvKo4ZKEei4-Y5VABCxQN1Wf6hd1asV-2_cZDrpeA/exec'
-const form = document.forms['submit-to-google-sheet']
+const form = document.forms['submit-to-google-sheet'];
 
-const msg=document.getElementById("msg")
+const msg=document.getElementById("msg");
 
 form.addEventListener('submit', e => {
     e.preventDefault()
