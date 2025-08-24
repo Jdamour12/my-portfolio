@@ -18,26 +18,35 @@ body {
 
 #header {
     width: 100%;
-    height: 100vh;
+    padding: 10px 0 48px;
 }
 
 .header-contents {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: nowrap;
 }
 
 .container {
-    padding: 5px 6%;
+    padding: 5px 2%;
 }
 
 nav {
-    background: #262626;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    position: fixed;
+    gap: 24px;
+    position: sticky;
+    /* keeps it at the top without overlaying content */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 2%;
+    background: #080808;
+    /* solid backdrop so text is readable */
+    z-index: 1000;
 }
 
 .logo {
@@ -46,8 +55,24 @@ nav {
     cursor: pointer;
 }
 
-nav ul{
-    margin-left: 450px;
+nav ul {
+    margin-left: auto;
+    /* push links to the right */
+    display: flex;
+    gap: 32px;
+}
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  right: -200px;   /* hidden initially */
+  width: 200px;
+  height: 100vh;
+  background: #ff004f;
+  padding-top: 50px;
+  z-index: 2000;
+  transition: right 0.5s;
+  flex-direction: column; /* stack items vertically */
 }
 
 nav ul li {
@@ -78,7 +103,7 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-.header-text{
+.header-text {
     width: 60%;
     margin-top: 30px;
     font-size: 30px;
@@ -220,6 +245,7 @@ span {
 #portfolio {
     padding: 50px 0;
 }
+
 .work-list {
     display: flex;
     grid-template-columns: repeat(auto-fit, minimax(250px, 1fr));
@@ -280,6 +306,7 @@ span {
 .work:hover img {
     transform: scale(1.1);
 }
+
 .work:hover .layer {
     height: 100%;
 }
@@ -311,7 +338,7 @@ span {
     flex-basis: 60%;
 }
 
-.contact-left p{
+.contact-left p {
     flex-basis: 35%;
     padding: 5px;
 }
@@ -322,7 +349,7 @@ span {
     font-size: 25px;
 }
 
-.social-media-icons{
+.social-media-icons {
     margin-top: 30px;
 }
 
@@ -355,7 +382,8 @@ span {
     width: 100%;
 }
 
-form input, textarea {
+form input,
+textarea {
     width: 100%;
     border: 0;
     outline: none;
@@ -397,6 +425,7 @@ nav .fas {
         align-items: center;
 
     }
+
     .header-text {
         margin-top: 100%;
         font-size: 16px;
@@ -439,7 +468,8 @@ nav .fas {
         font-size: 40px;
     }
 
-    .about-col-1, .about-col-2 {
+    .about-col-1,
+    .about-col-2 {
         flex-basis: 100%;
     }
 
@@ -456,13 +486,15 @@ nav .fas {
         margin-right: 20px;
     }
 
-    .services-list, .work-list{
+    .services-list,
+    .work-list {
         display: grid;
     }
 
-    .header-contents{
+    .header-contents {
         min-width: 300px;
     }
+
     .header-contents .header-text {
         margin-top: 40px;
     }
@@ -472,7 +504,8 @@ nav .fas {
         max-height: 300px;
     }
 
-    .contact-left, .contact-right {
+    .contact-left,
+    .contact-right {
         flex-basis: 100%;
     }
 
@@ -486,3 +519,78 @@ nav .fas {
     margin-top: -40px;
     display: block;
 }
+
+/* Tablets and small laptops */
+@media only screen and (max-width: 1024px) {
+    nav ul {
+        margin-left: 0;
+        gap: 30px;
+    }
+
+    .header-contents {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-text {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    .header-text h1 {
+        font-size: 40px;
+    }
+
+    .header-image img {
+        max-width: 300px;
+        margin-top: 20px;
+    }
+
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Tablets & large phones */
+@media only screen and (max-width: 768px) {
+
+    .services-list,
+    .work-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .sub-title {
+        font-size: 35px;
+    }
+
+    .header-text h1 {
+        font-size: 32px;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 480px) {
+
+    .services-list,
+    .work-list {
+        grid-template-columns: 1fr;
+    }
+
+    .header-text {
+        font-size: 16px;
+    }
+
+    .header-text h1 {
+        font-size: 24px;
+    }
+
+    .header-image img {
+        max-width: 200px;
+    }
+}
+
