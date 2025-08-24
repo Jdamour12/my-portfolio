@@ -48,6 +48,7 @@ nav {
     background: #080808;
     /* solid backdrop so text is readable */
     z-index: 1000;
+    margin-top: -18px;
 }
 
 .logo {
