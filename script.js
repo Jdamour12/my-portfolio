@@ -35,14 +35,56 @@ const form = document.forms['submit-to-google-sheet'];
 const msg=document.getElementById("msg");
 
 form.addEventListener('submit', e => {
-    e.preventDefault()
+    e.preventDefault();
+    const name = form['Name'].value.trim();
+    const email = form['Email'].value.trim();
+    const message = form['Message'].value.trim();
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const messageError = document.getElementById('message-error');
+
+    // Hide all errors first
+    nameError.style.display = "none";
+    emailError.style.display = "none";
+    messageError.style.display = "none";
+
+    // Name validation
+    if (!name) {
+        nameError.textContent = "Please enter your name.";
+        nameError.style.display = "block";
+        form['Name'].focus();
+        return;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+        emailError.textContent = "Please enter your email address.";
+        emailError.style.display = "block";
+        form['Email'].focus();
+        return;
+    } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Please enter a valid email address.";
+        emailError.style.display = "block";
+        form['Email'].focus();
+        return;
+    }
+
+    // Message validation
+    if (!message) {
+        messageError.textContent = "Please enter your message.";
+        messageError.style.display = "block";
+        form['Message'].focus();
+        return;
+    }
+
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
     .then(response => {
-        msg.innerHTML="Thank you for your message! I'll get back to you shortly."
+        msg.innerHTML = "Thank you for your message! I'll get back to you shortly.";
         setTimeout(function(){
-            msg.innerHTML=""
-        }, 10000)
-        form.reset()
+            msg.innerHTML = "";
+        }, 10000);
+        form.reset();
     })
-    .catch(error => console.error('Error!', error.message))
+    .catch(error => console.error('Error!', error.message));
 })

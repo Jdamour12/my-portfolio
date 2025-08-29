@@ -168,9 +168,12 @@
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" cols="" placeholder="Your Message" required></textarea>
+                        <input type="text" name="Name" placeholder="Your Name">
+                        <p id="name-error" style="color: #ef5757; display: none; margin-bottom: 8px;"></p>
+                        <input type="email" name="Email" placeholder="Your Email">
+                        <p id="email-error" style="color: #ef5757; display: none; margin-bottom: 8px;"></p>
+                        <textarea name="Message" rows="6" cols="" placeholder="Your Message"></textarea>
+                        <p id="message-error" style="color: #ef5757; display: none; margin-bottom: 8px;"></p>
                         <button class="btn btn-2" type="submit">Submit</button>
                     </form>
 
